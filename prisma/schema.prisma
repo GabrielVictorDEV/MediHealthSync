@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model receitaBranca {
+  id              String @id @default(uuid())
+  bairro          String
+  cep             String
+  cidade          String
+  crm             String
+  dataPrescricao  String
+  estadoPrescrito String
+  nome            String
+  nomeMedico      String
+  numero          String
+  orgaoEmissor    String
+  rg              String
+  rua             String
+  telefone        String
+}
+
+model receitaNotificacao {
+  id                String @id @default(uuid())
+  bairro            String
+  cep               String
+  cidade            String
+  crm               String
+  dataPrescricao    String
+  estadoPrescrito   String
+  nome              String
+  nomeMedico        String
+  numero            String
+  orgaoEmissor      String
+  rg                String
+  rua               String
+  telefone          String
+  numeroNotificacao String
+}
+
+model receitaAntimicrobiana {
+  id              String @id @default(uuid())
+  bairro          String
+  cep             String
+  cidade          String
+  crm             String
+  dataPrescricao  String
+  estadoPrescrito String
+  nome            String
+  nomeMedico      String
+  nomePaciente    String
+  idade           String
+  numero          String
+  orgaoEmissor    String
+  rg              String
+  rua             String
+  telefone        String
+}
