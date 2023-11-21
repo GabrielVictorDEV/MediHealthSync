@@ -6,7 +6,7 @@ settings:
 
 dependencies:
   '@prisma/client':
-    specifier: ^4.15.0
+    specifier: ^4.16.2
     version: 4.16.2(prisma@4.16.2)
   '@rocketseat/eslint-config':
     specifier: ^2.1.0

@@ -21,7 +21,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@prisma/client": "^4.15.0",
+    "@prisma/client": "^4.16.2",
     "@rocketseat/eslint-config": "^2.1.0",
     "@types/cors": "^2.8.17",
     "cors": "^2.8.5",
