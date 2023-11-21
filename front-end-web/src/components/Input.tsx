@@ -1,4 +1,4 @@
-export function Input () {
+export function Input() {
   return (
     <>
       <div>

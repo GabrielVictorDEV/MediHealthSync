@@ -1,0 +1,11 @@
+{
+  "/_not-found": "/_not-found",
+  "/page": "/",
+  "/icon.png/route": "/icon.png",
+  "/home/page": "/home",
+  "/home/profile/page": "/home/profile",
+  "/home/cadrastadas/page": "/home/cadrastadas",
+  "/home/receitas/receita-branca/page": "/home/receitas/receita-branca",
+  "/home/receitas/receita-antimicrobiana/page": "/home/receitas/receita-antimicrobiana",
+  "/home/receitas/receita-notificacao/page": "/home/receitas/receita-notificacao"
+}
