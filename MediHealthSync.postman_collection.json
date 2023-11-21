@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "af1393a5-c818-4faf-80ce-bb386cf42f6b",
+		"name": "MediHealthSync",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24258604"
+	},
+	"item": [
+		{
+			"name": "createReceitaBranca",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"bairro\": \"Manaíra\",\r\n\"cep\": \"58038120\",\r\n\"cidade\": \"João Pessoa\",\r\n\"crm\": \"7654321\",\r\n\"dataPrescricao\": \"22/09/2010\",\r\n\"estadoPrescrito\": \"PB\",\r\n\"nome\": \"Isabela Oliveira\",\r\n\"nomeMedico\": \"Ana Souza\",\r\n\"numero\": \"78\",\r\n\"orgaoEmissor\": \"SSP\",\r\n\"rg\": \"8765432\",\r\n\"rua\": \"Avenida Epitácio Pessoa\",\r\n\"telefone\": \"87988765432\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3333/receita-branca"
+			},
+			"response": []
+		},
+		{
+			"name": "createReceitaAntimicrobiana",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"bairro\": \"Manaíra\",\r\n\"cep\": \"58038120\",\r\n\"cidade\": \"João Pessoa\",\r\n\"crm\": \"7654321\",\r\n\"dataPrescricao\": \"22/09/2010\",\r\n\"estadoPrescrito\": \"PB\",\r\n\"nome\": \"Isabela Oliveira\",\r\n\"nomeMedico\": \"Ana Souza\",\r\n\"nomePaciente\": \"lucas marques\",\r\n\"idade\": \"23\",\r\n\"numero\": \"78\",\r\n\"orgaoEmissor\": \"SSP\",\r\n\"rg\": \"8765432\",\r\n\"rua\": \"Avenida Epitácio Pessoa\",\r\n\"telefone\": \"87988765432\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3333/receita-antimicrobiana"
+			},
+			"response": []
+		},
+		{
+			"name": "createReceitaNotificacao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"bairro\": \"Manaíra\",\r\n\"cep\": \"58038120\",\r\n\"cidade\": \"João Pessoa\",\r\n\"crm\": \"7654321\",\r\n\"dataPrescricao\": \"22/09/2010\",\r\n\"estadoPrescrito\": \"PB\",\r\n\"nome\": \"Isabela Oliveira\",\r\n\"nomeMedico\": \"Ana Souza\",\r\n\"numero\": \"78\",\r\n\"orgaoEmissor\": \"SSP\",\r\n\"rg\": \"8765432\",\r\n\"rua\": \"Avenida Epitácio Pessoa\",\r\n\"telefone\": \"87988765432\",\r\n\"numeroNotificacao\": \"w123134132\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3333/receita-notificacao"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllReceitaBranca",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3333/receita-branca"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllReceitaAntimicrobiana",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3333/receita-antimicrobiana"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllReceitaNotificacao",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3333/receita-notificacao"
+			},
+			"response": []
+		}
+	]
+}
