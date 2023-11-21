@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { useState } from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
 import { MdClose } from 'react-icons/md'
@@ -21,7 +22,9 @@ export function Navbar() {
           <div className="flex justify-center items-center text-slate-900">
             <p
               className="cursor-pointer rounded-full bg-white-100 p-2"
-              onClick={() => setDropdownVisibility(!isDropdownVisible)}
+              onClick={() => {
+                setDropdownVisibility(!isDropdownVisible)
+              }}
             >
               <AiOutlineUser size="20px" />
             </p>
@@ -33,41 +36,67 @@ export function Navbar() {
                 isDropdownVisible ? 'block' : 'hidden'
               } z-10 bg-white divide-gray-100 rounded-lg shadow-md mr-24 w-56 mt-[270px] bg-blue-300 absolute`}
             >
-              <div className="px-4 py-3 text-sm text-gray-900 bg-blue-400">
+              <div className="px-4 py-3 text-sm text-white-100 bg-blue-400">
                 <div className="flex justify-between items-center">
-                  Nome do usuario
+                  admin@gmail.com
                   <p
                     className="cursor-pointer"
-                    onClick={() => setDropdownVisibility(false)}
+                    onClick={() => {
+                      setDropdownVisibility(false)
+                    }}
                   >
                     <MdClose />
                   </p>
                 </div>
               </div>
-              <ul className="py-2 text-sm" aria-labelledby="avatarButton">
+              <ul
+                className="py-2 text-sm text-blue-100"
+                aria-labelledby="avatarButton"
+              >
                 <li>
-                  <a href="#" className="block px-4 py-2 hover:bg-blue-400">
-                    Dashboard
-                  </a>
+                  <Link
+                    href="/home"
+                    className="block px-4 py-2 hover:bg-blue-400"
+                    onClick={() => {
+                      setDropdownVisibility(false)
+                    }}
+                  >
+                    Página Inicial
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="block px-4 py-2 hover:bg-blue-400">
-                    Settings
-                  </a>
+                  <Link
+                    href="/home/profile"
+                    className="block px-4 py-2 hover:bg-blue-400"
+                    onClick={() => {
+                      setDropdownVisibility(false)
+                    }}
+                  >
+                    Perfil
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="block px-4 py-2 hover:bg-blue-400">
-                    Earnings
-                  </a>
+                  <Link
+                    href="/home/cadrastadas"
+                    className="block px-4 py-2 hover:bg-blue-400"
+                    onClick={() => {
+                      setDropdownVisibility(false)
+                    }}
+                  >
+                    Receitas cadrastadas
+                  </Link>
                 </li>
               </ul>
               <div className="py-1">
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm hover:bg-blue-400"
+                <Link
+                  href="/"
+                  className="text-white-100 block px-4 py-2 text-sm hover:bg-blue-400"
+                  onClick={() => {
+                    setDropdownVisibility(false)
+                  }}
                 >
-                  Sign out
-                </a>
+                  Logout
+                </Link>
               </div>
             </div>
           </div>

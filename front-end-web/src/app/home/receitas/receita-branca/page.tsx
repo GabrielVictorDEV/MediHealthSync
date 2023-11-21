@@ -3,6 +3,10 @@ import { z } from 'zod'
 import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import axios from 'axios'
+import { configs } from '@/configs'
+
+const URL = String(configs.RECEITA_BRANCA_URL)
 
 interface FormData {
   nome?: string
@@ -87,17 +91,30 @@ export default function ReceitaBranca() {
     })
   }
 
-  function notify() {
-    toast.success('Mensagem enviada com sucesso!', {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'colored',
-    })
+  function notify(valid: boolean) {
+    if (valid) {
+      toast.success('Receita cadrastada com sucesso!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      })
+    } else {
+      toast.error('Ocorreu um erro ao cadrastar a receita!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      })
+    }
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -106,12 +123,22 @@ export default function ReceitaBranca() {
     try {
       schema.parse(formData)
       console.log(formData)
-      setFormErrors({})
-      clearForm()
-      notify()
+      axios
+        .post(URL, formData)
+        .then((response) => {
+          console.log(response.data)
+          setFormErrors({})
+          clearForm()
+          notify(true)
+        })
+        .catch((error) => {
+          notify(false)
+          console.error('Erro na requisição:', error)
+          setFormErrors({})
+        })
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const fieldErrors: { [key: string]: string } = {}
+        const fieldErrors: Record<string, string> = {}
         error.errors.forEach((err) => {
           fieldErrors[err.path[0]] = err.message
         })

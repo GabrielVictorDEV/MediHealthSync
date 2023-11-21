@@ -3,6 +3,10 @@ import { z } from 'zod'
 import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import axios from 'axios'
+import { configs } from '@/configs'
+
+const URL = String(configs.RECEITA_ANTIMICROBIANA_URL)
 
 interface FormData {
   nome?: string
@@ -24,7 +28,9 @@ interface FormData {
 
 const schema = z.object({
   nome: z.string().min(1, { message: 'O campo nome é obrigatório' }),
-  nomePaciente: z.string().min(1, { message: 'O campo nome do paciente é obrigatório' }),
+  nomePaciente: z
+    .string()
+    .min(1, { message: 'O campo nome do paciente é obrigatório' }),
   idade: z.string().min(1, { message: 'O campo idade é obrigatório' }),
   rg: z.string().min(7, { message: 'O campo RG é obrigatório' }),
   orgaoEmissor: z.string().min(2, { message: 'O campo OE é obrigatório' }),
@@ -61,8 +67,8 @@ export default function ReceitaAntimicrobiana() {
     estadoPrescrito: '',
     crm: '',
     nomeMedico: '',
-    nomePaciente:'', 
-    idade:''
+    nomePaciente: '',
+    idade: '',
   })
 
   const [formErrors, setFormErrors] = useState<FormData>({})
@@ -90,22 +96,35 @@ export default function ReceitaAntimicrobiana() {
       estadoPrescrito: '',
       crm: '',
       nomeMedico: '',
-      nomePaciente:'', 
-      idade:'',
+      nomePaciente: '',
+      idade: '',
     })
   }
 
-  function notify() {
-    toast.success('Mensagem enviada com sucesso!', {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'colored',
-    })
+  function notify(valid: boolean) {
+    if (valid) {
+      toast.success('Receita cadrastada com sucesso!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      })
+    } else {
+      toast.error('Ocorreu um erro ao cadrastar a receita!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      })
+    }
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -114,12 +133,22 @@ export default function ReceitaAntimicrobiana() {
     try {
       schema.parse(formData)
       console.log(formData)
-      setFormErrors({})
-      clearForm()
-      notify()
+      axios
+        .post(URL, formData)
+        .then((response) => {
+          console.log(response.data)
+          setFormErrors({})
+          clearForm()
+          notify(true)
+        })
+        .catch((error) => {
+          notify(false)
+          console.error('Erro na requisição:', error)
+          setFormErrors({})
+        })
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const fieldErrors: { [key: string]: string } = {}
+        const fieldErrors: Record<string, string> = {}
         error.errors.forEach((err) => {
           fieldErrors[err.path[0]] = err.message
         })
@@ -369,8 +398,7 @@ export default function ReceitaAntimicrobiana() {
             </div>
 
             <div className="flex flex-col items-center gap-2 ">
-
-            <section className="flex flex-row gap-4">
+              <section className="flex flex-row gap-4">
                 <div className="flex flex-col justify-between">
                   <label htmlFor="nomePaciente" className="text-lg px-2 pb-2">
                     Nome do paciente:
@@ -396,10 +424,7 @@ export default function ReceitaAntimicrobiana() {
                   )}
                 </div>
                 <div className="flex flex-col">
-                  <label
-                    htmlFor="idade"
-                    className="text-lg px-2 pb-2"
-                  >
+                  <label htmlFor="idade" className="text-lg px-2 pb-2">
                     Idade:
                   </label>
                   <input
@@ -415,9 +440,7 @@ export default function ReceitaAntimicrobiana() {
                     }`}
                   />
                   {formErrors.idade && (
-                    <span className="text-red-500">
-                      {formErrors.idade}
-                    </span>
+                    <span className="text-red-500">{formErrors.idade}</span>
                   )}
                 </div>
               </section>
