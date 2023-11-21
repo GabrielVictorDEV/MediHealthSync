@@ -1,11 +1,12 @@
-import { Router } from "express";
-import { userRoutes } from "./user.routes"
-import { movieRoutes } from "./movie.routes";
+import { Router } from 'express'
+import { receitaBrancaRoutes } from './receitas.branca.routes'
+import { receitaNotificacaoRoutes } from './receitas.notificacao.routes'
+import { receitaAntimicrobianaRoutes } from './receitas.antimicrobiana.routes'
 
-const routes = Router();
+const routes = Router()
 
-routes.use("/users", userRoutes)
-
-routes.use("/movies", movieRoutes)
+routes.use('/receita-branca', receitaBrancaRoutes)
+routes.use('/receita-antimicrobiana', receitaAntimicrobianaRoutes)
+routes.use('/receita-notificacao', receitaNotificacaoRoutes)
 
 export { routes }

@@ -27,9 +27,6 @@ export const InputCard: React.FC<InputCardProps> = ({
           <p className="text-2xl font-bold tracking-tight text-white-100 bg-blue pb-2">
             {text}
           </p>
-          <p className="font-normal text-xs text-white-100 font-raleway">
-            Tipos de Notificação de receita
-          </p>{' '}
         </div>
       </div>
     </Link>

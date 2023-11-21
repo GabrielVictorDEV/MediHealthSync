@@ -6,3 +6,6 @@ O projeto MediHealthSync visa oferecer uma solução abrangente para sincroniza�
 
 ## Direitos Autorais
 Todos os direitos reservados. O código-fonte e os recursos deste repositório são propriedade intelectual da equipe de desenvolvimento da MediHealthSync.
+
+npx prisma studio
+npx prisma migrate dev

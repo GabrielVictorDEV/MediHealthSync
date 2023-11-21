@@ -1,0 +1,82 @@
+{
+  "pages": {
+    "/_not-found": [
+      "static/chunks/webpack-684acad1d1982245.js",
+      "static/chunks/1dd012d3-d020caf87dcb6153.js",
+      "static/chunks/892-b6720ef60c50d13f.js",
+      "static/chunks/main-app-7dcfc3a35f02dadd.js",
+      "static/chunks/app/_not-found-2f1e9744874dfc82.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-684acad1d1982245.js",
+      "static/chunks/1dd012d3-d020caf87dcb6153.js",
+      "static/chunks/892-b6720ef60c50d13f.js",
+      "static/chunks/main-app-7dcfc3a35f02dadd.js",
+      "static/css/d3a4ed297b86745f.css",
+      "static/chunks/app/layout-ba4a48ad6642517e.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-684acad1d1982245.js",
+      "static/chunks/1dd012d3-d020caf87dcb6153.js",
+      "static/chunks/892-b6720ef60c50d13f.js",
+      "static/chunks/main-app-7dcfc3a35f02dadd.js",
+      "static/chunks/37-b01339c4eb9bce56.js",
+      "static/chunks/app/page-9140c6373370a0d5.js"
+    ],
+    "/home/page": [
+      "static/chunks/webpack-684acad1d1982245.js",
+      "static/chunks/1dd012d3-d020caf87dcb6153.js",
+      "static/chunks/892-b6720ef60c50d13f.js",
+      "static/chunks/main-app-7dcfc3a35f02dadd.js",
+      "static/chunks/37-b01339c4eb9bce56.js",
+      "static/chunks/480-89808c540c58ca23.js",
+      "static/chunks/app/home/page-0e41ece6e13fac02.js"
+    ],
+    "/home/layout": [
+      "static/chunks/webpack-684acad1d1982245.js",
+      "static/chunks/1dd012d3-d020caf87dcb6153.js",
+      "static/chunks/892-b6720ef60c50d13f.js",
+      "static/chunks/main-app-7dcfc3a35f02dadd.js",
+      "static/chunks/83c827af-ab805b84e119ea13.js",
+      "static/chunks/f78b7092-6367deb46d40ea0e.js",
+      "static/chunks/app/home/layout-d221169ad42d2ccd.js"
+    ],
+    "/home/receitas/receita-branca/page": [
+      "static/chunks/webpack-684acad1d1982245.js",
+      "static/chunks/1dd012d3-d020caf87dcb6153.js",
+      "static/chunks/892-b6720ef60c50d13f.js",
+      "static/chunks/main-app-7dcfc3a35f02dadd.js",
+      "static/chunks/391-e7f642a0fe53ba28.js",
+      "static/css/431944509084d071.css",
+      "static/chunks/app/home/receitas/receita-branca/page-283922bebcf7caf5.js"
+    ],
+    "/home/receitas/layout": [
+      "static/chunks/webpack-684acad1d1982245.js",
+      "static/chunks/1dd012d3-d020caf87dcb6153.js",
+      "static/chunks/892-b6720ef60c50d13f.js",
+      "static/chunks/main-app-7dcfc3a35f02dadd.js",
+      "static/chunks/83c827af-ab805b84e119ea13.js",
+      "static/chunks/5505d8f8-fba38004525f440d.js",
+      "static/chunks/37-b01339c4eb9bce56.js",
+      "static/chunks/app/home/receitas/layout-b14c78962f37a606.js"
+    ],
+    "/home/receitas/receita-notificacao/page": [
+      "static/chunks/webpack-684acad1d1982245.js",
+      "static/chunks/1dd012d3-d020caf87dcb6153.js",
+      "static/chunks/892-b6720ef60c50d13f.js",
+      "static/chunks/main-app-7dcfc3a35f02dadd.js",
+      "static/chunks/391-e7f642a0fe53ba28.js",
+      "static/css/431944509084d071.css",
+      "static/chunks/app/home/receitas/receita-notificacao/page-0cb699f982372d5f.js"
+    ],
+    "/home/receitas/receita-antimicrobiana/page": [
+      "static/chunks/webpack-684acad1d1982245.js",
+      "static/chunks/1dd012d3-d020caf87dcb6153.js",
+      "static/chunks/892-b6720ef60c50d13f.js",
+      "static/chunks/main-app-7dcfc3a35f02dadd.js",
+      "static/chunks/391-e7f642a0fe53ba28.js",
+      "static/css/431944509084d071.css",
+      "static/chunks/app/home/receitas/receita-antimicrobiana/page-554c51658ca955f3.js"
+    ]
+  }
+}

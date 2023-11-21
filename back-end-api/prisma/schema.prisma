@@ -10,33 +10,56 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id String @id @default(uuid()) 
-  email String @unique 
-  name String 
-  created_at DateTime @default(now())
-  update_at DateTime @updatedAt
-  movie_rent MovieRent[] @relation("user")
-
-  @@map("users")
+model receitaBranca {
+  id              String @id @default(uuid())
+  bairro          String
+  cep             String
+  cidade          String
+  crm             String
+  dataPrescricao  String
+  estadoPrescrito String
+  nome            String
+  nomeMedico      String
+  numero          String
+  orgaoEmissor    String
+  rg              String
+  rua             String
+  telefone        String
 }
 
-model Movie {
-  id String @id @default(uuid()) 
-  title String @unique
-  duration Int
-  release_date DateTime
-  movie_rent MovieRent[] @relation("movie")
-
-  @@map("movies")
+model receitaNotificacao {
+  id                String @id @default(uuid())
+  bairro            String
+  cep               String
+  cidade            String
+  crm               String
+  dataPrescricao    String
+  estadoPrescrito   String
+  nome              String
+  nomeMedico        String
+  numero            String
+  orgaoEmissor      String
+  rg                String
+  rua               String
+  telefone          String
+  numeroNotificacao String
 }
 
-model MovieRent {
-  user User @relation("user", fields: [userId], references: [id])
-  userId String
-  movie Movie @relation("movie", fields: [movieId], references: [id])
-  movieId String
-
-  @@id([userId, movieId])
-  @@map("movie_rent")
+model receitaAntimicrobiana {
+  id              String @id @default(uuid())
+  bairro          String
+  cep             String
+  cidade          String
+  crm             String
+  dataPrescricao  String
+  estadoPrescrito String
+  nome            String
+  nomeMedico      String
+  nomePaciente    String
+  idade           String
+  numero          String
+  orgaoEmissor    String
+  rg              String
+  rua             String
+  telefone        String
 }

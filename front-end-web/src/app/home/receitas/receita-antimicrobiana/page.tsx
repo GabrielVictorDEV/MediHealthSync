@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 interface FormData {
   nome?: string
+  nomePaciente?: string
   idade?: string
   rg?: string
   orgaoEmissor?: string
@@ -23,6 +24,8 @@ interface FormData {
 
 const schema = z.object({
   nome: z.string().min(1, { message: 'O campo nome é obrigatório' }),
+  nomePaciente: z.string().min(1, { message: 'O campo nome do paciente é obrigatório' }),
+  idade: z.string().min(1, { message: 'O campo idade é obrigatório' }),
   rg: z.string().min(7, { message: 'O campo RG é obrigatório' }),
   orgaoEmissor: z.string().min(2, { message: 'O campo OE é obrigatório' }),
   telefone: z.string().min(11, { message: 'O campo telefone é obrigatório' }),
@@ -58,6 +61,8 @@ export default function ReceitaAntimicrobiana() {
     estadoPrescrito: '',
     crm: '',
     nomeMedico: '',
+    nomePaciente:'', 
+    idade:''
   })
 
   const [formErrors, setFormErrors] = useState<FormData>({})
@@ -85,6 +90,8 @@ export default function ReceitaAntimicrobiana() {
       estadoPrescrito: '',
       crm: '',
       nomeMedico: '',
+      nomePaciente:'', 
+      idade:'',
     })
   }
 
@@ -362,6 +369,59 @@ export default function ReceitaAntimicrobiana() {
             </div>
 
             <div className="flex flex-col items-center gap-2 ">
+
+            <section className="flex flex-row gap-4">
+                <div className="flex flex-col justify-between">
+                  <label htmlFor="nomePaciente" className="text-lg px-2 pb-2">
+                    Nome do paciente:
+                  </label>
+                  <input
+                    id="nomePaciente"
+                    placeholder="•••••••••"
+                    name="nomePaciente"
+                    type="text"
+                    value={formData.nomePaciente}
+                    onChange={handleChange}
+                    onFocus={handleFocus}
+                    className={`w-[445px] h-8 p-4 rounded-md focus:border-blue-500 border border-gray-300 outline-none ${
+                      formErrors.nomePaciente ? 'border-red-500' : ''
+                    }`}
+                  />
+                  {formErrors.nomePaciente ? (
+                    <span className="text-red-500">
+                      {formErrors.nomePaciente}
+                    </span>
+                  ) : (
+                    <span className="h-[25px]"></span>
+                  )}
+                </div>
+                <div className="flex flex-col">
+                  <label
+                    htmlFor="idade"
+                    className="text-lg px-2 pb-2"
+                  >
+                    Idade:
+                  </label>
+                  <input
+                    id="idade"
+                    placeholder="•••••••••"
+                    name="idade"
+                    type="text"
+                    value={formData.idade}
+                    onChange={handleChange}
+                    onFocus={handleFocus}
+                    className={`w-[445px] h-8 p-4 rounded-md focus:border-blue-500 border border-gray-300 outline-none ${
+                      formErrors.idade ? 'border-red-500' : ''
+                    }`}
+                  />
+                  {formErrors.idade && (
+                    <span className="text-red-500">
+                      {formErrors.idade}
+                    </span>
+                  )}
+                </div>
+              </section>
+
               <section className="flex flex-row gap-4">
                 <div className="flex flex-col justify-between">
                   <label htmlFor="dataPrescricao" className="text-lg px-2 pb-2">
